@@ -271,26 +271,27 @@
             <div class="form-particles" id="form-particles"></div>
 
             <form id="contactForm">
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder=" " required>
-                    <label class="form-label">Full Name</label>
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-input" placeholder=" " required>
-                    <label class="form-label">Mobile number</label>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-input" rows="1" placeholder=" " required></textarea>
-                    <label class="form-label">Project Details</label>
-                </div>
+    <div class="form-group">
+        <input type="text" name="from_name" class="form-input" placeholder=" " required>
+        <label class="form-label">Full Name</label>
+    </div>
+    <div class="form-group">
+        <input type="number" name="user_phone" class="form-input" placeholder=" " required>
+        <label class="form-label">Mobile number</label>
+    </div>
+    <div class="form-group">
+        <textarea name="message" class="form-input" rows="1" placeholder=" " required></textarea>
+        <label class="form-label">Project Details</label>
+    </div>
 
-                <div class="btn-wrap">
-                    <button type="submit" class="mag-btn" id="mag-btn">
-                        <span>Send Message</span>
-                        <i data-lucide="arrow-right"></i>
-                    </button>
-                </div>
-            </form>
+    <div class="btn-wrap">
+        <button type="submit" class="mag-btn" id="mag-btn">
+            <span>Send Message</span>
+            <i data-lucide="arrow-right"></i>
+        </button>
+    </div>
+</form>
+
 
             <div class="social-proof">
                 <div class="proof-text">Joined by 50+ visionary brands globally.</div>
@@ -304,15 +305,55 @@
         </div>
     </main>
 
- 
+ <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Initialize EmailJS
+    (function() { 
+        emailjs.init("xzBpQi5U68rp562Lu"); 
+    })();
+
+    document.getElementById('contactForm').onsubmit = function(e) {
+        e.preventDefault();
+        
+        const btn = document.getElementById('mag-btn');
+        const btnText = btn.querySelector('span');
+        
+        // Button state change
+        btnText.innerText = "Sending...";
+        btn.disabled = true;
+
+        // Send Form
+        emailjs.sendForm('service_ete2uen', 'template_t4n5g19', this)
+            .then(() => {
+                btnText.innerText = "Message Sent!";
+                btn.style.background = "#22c55e"; // Green color on success
+                
+                // Form reset after 2 seconds
+                setTimeout(() => {
+                    document.getElementById('contactForm').reset();
+                    btnText.innerText = "Send Message";
+                    btn.style.background = ""; // Back to original
+                    btn.disabled = false;
+                }, 3000);
+
+                alert("Thank you! Your message has been sent.");
+                
+            }, (err) => {
+                alert("Failed to send message. Error: " + JSON.stringify(err));
+                btnText.innerText = "Send Message";
+                btn.disabled = false;
+            });
+    };
+</script>
      
 <style>
           /* --- BOTTOM NAVIGATION (App Style) --- */
-       :root {
-    --accent: #ffd000;
-    
-    --nav-bg: rgba(255, 255, 255, 0.49);
-}
+       
 
 .bottom-nav {
     position: fixed;
@@ -360,8 +401,8 @@
 }
 
 .nav-item i {
-    width: 22px;
-    height: 22px;
+    width: 30px;
+    height: 30px;
     stroke-width: 2.2;
 }
 
