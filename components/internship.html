@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply | CodeCrafte Portal</title>
+    
+ <script
+    src="https://cdn.jsdelivr.net/npm/lucide@0.363.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
+      <script src="https://unpkg.com/lucide@latest"></script>
+ <script>
+    function initializeIcons() {
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+        console.log("Icons Initialized!");
+      } else {
+        console.error("Lib. Not Found! :(");
+      }
+    }
+
+    // 2. Method 1: Jab DOM ready ho
+    document.addEventListener("DOMContentLoaded", initializeIcons);
+
+    // 3. Method 2: Backup delay (taki confirm show hon)
+    setTimeout(initializeIcons, 500);
+  </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #000000;
+            --accent: #6366f1;
+            --bg: #ffffff;
+            --card-bg: #f8fafc;
+            --text-main: #1a1a1a;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%); }
+        .hero h1 { font-size: clamp(32px, 8vw, 64px); font-weight: 800; letter-spacing: -2px; margin-bottom: 15px; }
+        .hero h1 span { color: var(--text-muted); }
+        .hero p { max-width: 600px; margin: 0 auto 40px; color: var(--text-muted); font-size: 18px; }
+
+        /* --- WHY JOIN US --- */
+        .benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; }
+        .b-card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid #f1f5f9; transition: 0.3s; }
+        .b-card:hover { transform: translateY(-5px); border-color: var(--accent); background: #fff; }
+        .b-card h4 { margin: 15px 0 10px; font-weight: 700; }
+        .b-card p { font-size: 14px; color: var(--text-muted); }
+
+        /* --- FORM SECTION --- */
+        .form-container { max-width: 700px; margin: 0 auto 100px; padding: 0 20px; }
+        .apply-form { background: #fff; padding: 40px; border-radius: 32px; border: 1px solid #f1f5f9; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.05); }
+        
+        .field { margin-bottom: 20px; text-align: left; }
+        .field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #334155; }
+        .field input, .field select, .field textarea { 
+            width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; 
+            font-family: inherit; font-size: 15px; transition: 0.3s; 
+        }
+        .field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1); }
+
+        /* Drag & Drop */
+        .drop-zone { border: 2px dashed #cbd5e1; padding: 30px; border-radius: 15px; text-align: center; cursor: pointer; background: #fdfdfd; }
+        .drop-zone.active { border-color: var(--accent); background: rgba(99, 102, 241, 0.05); }
+
+        .submit-btn { 
+            width: 100%; padding: 18px; background: var(--primary); color: #fff; border: none; 
+            border-radius: 15px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s;
+        }
+        .submit-btn:hover { background: #333; transform: scale(1.01); }
+
+        /* Popover */
+        #popover { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 999; align-items: center; justify-content: center; }
+        .pop-card { background: #fff; padding: 40px; border-radius: 30px; text-align: center; max-width: 400px; }
+
+        /* Ad Slots */
+        .ad-placeholder { background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 11px; text-transform: uppercase; margin: 20px 0; border: 1px dashed #cbd5e1; }
+
+        @media (max-width: 600px) { .apply-form { padding: 25px; } .hero h1 { font-size: 38px; } }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+<img src="../images/logo.png"  style="height: 300px; width: 330px; margin-top: -100px;" alt="logo"> 
+       <h1>Build the Future with  <span>CodeCrafte</span></h1>
+        <p>Join our 1-month intensive internship program and architect your digital future.</p>
+    </section>
+
+    <section class="benefits">
+        <div class="b-card"  style="margin-top: -100px;">
+            <div style="font-size: 30px;"><i data-lucide="book-open"></i></div>
+            <h4>Learning Experience</h4>
+            <p>Work on live industry projects and master the latest tech stacks.</p>
+        </div>
+        <div class="b-card">
+            <div style="font-size: 30px;"><i data-lucide="award"></i></div>
+            <h4>Certification</h4>
+            <p>Receive an official CodeCrafte internship certificate upon completion.</p>
+        </div>
+        <div class="b-card">
+            <div style="font-size: 30px;"><i data-lucide="file-check-2"></i></div>
+            <h4>Recommendation</h4>
+            <p>Top performers get a personalized Letter of Recommendation (LOR).</p>
+        </div>
+    </section>
+
+    <div class="form-container">
+        <div class="ad-placeholder" style="height: 90px;">AdSense Placeholder (Top)</div>
+        
+        <form id="applyForm" class="apply-form">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" name="from_name" required placeholder="John Doe">
+                </div>
+                <div class="field">
+                    <label>Father's Name</label>
+                    <input type="text" name="father_name" required placeholder="Robert Doe">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Email Address</label>
+                <input type="email" name="user_email" required placeholder="john@example.com">
+            </div>
+
+            <div class="field">
+                <label>WhatsApp Number</label>
+                <input type="tel" name="user_phone" required placeholder="+92 300 1234567">
+            </div>
+
+            <div class="field">
+                <label>Select Domain</label>
+                <select name="domain" required>
+                    <option value="Web Development">Web Developer</option>
+                    <option value="Graphic Design">Graphic Designer</option>
+                    <option value="SEO Specialist">SEO Expert</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Portfolio Link</label>
+                <input type="url" name="portfolio_link" placeholder="Behance, GitHub or Drive Link">
+            </div>
+
+            
+
+            <div class="field">
+                <label>Note (Optional)</label>
+                <textarea name="message" rows="3" placeholder="Tell us about your goals..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="subBtn">Apply Now</button>
+        </form>
+
+        <div class="ad-placeholder" style="height: 250px;">AdSense Placeholder (Bottom Content)</div>
+    </div>
+
+    <div id="popover">
+        <div class="pop-card">
+            <div style="font-size: 50px; margin-bottom: 15px;">🚀</div>
+            <h2 style="font-weight: 800;">Application Sent Successfully!</h2>
+            <p style="color: var(--text-muted); margin: 15px 0 25px;">We have received your dream. Our team will contact you via WhatsApp soon.</p>
+            <button onclick="window.location.href='https://codecrafte.site'" class="submit-btn">Go to Main Page</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() { emailjs.init("ESmSHyfHNuv4ohN15"); })();
+
+        const dropZone = document.getElementById('dropZone');
+        const cvInput = document.getElementById('cvInput');
+        const fileName = document.getElementById('fileName');
+
+        dropZone.onclick = () => cvInput.click();
+        cvInput.onchange = () => { if(cvInput.files[0]) fileName.innerText = cvInput.files[0].name; };
+
+       document.getElementById('applyForm').onsubmit = function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('subBtn');
+    
+    // File size check (Optional but good)
+    if(cvInput.files[0] && cvInput.files[0].size > 50000) { // 50KB check
+        console.log("File is large, sending as attachment...");
+    }
+
+    btn.innerText = "Sending...";
+    btn.disabled = true;
+
+    // Direct form send (EmailJS handles file inputs as attachments automatically)
+    emailjs.sendForm('service_g2dm8e9', 'template_thel60c', this)
+        .then(() => {
+            document.getElementById('popover').style.display = 'flex';
+        }, (err) => {
+            alert("Failed: " + JSON.stringify(err));
+            btn.innerText = "Apply Now";
+            btn.disabled = false;
+        });
+};
+    </script>
+</body>
+</html>
