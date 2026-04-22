@@ -1,3 +1,170 @@
+/* indexxxx*/
+
+        :root {
+            --primary: #000000;
+            --secondary: #6366f1;
+            --text-main: #1a1a1a;
+            --text-muted: #64748b;
+            --bg: #ffffff;
+            --card-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Background subtle gradient for Premium feel */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .logo-area {
+            margin-bottom: 40px;
+        }
+
+        .logo-area img {
+            height: 40px; /* Adjust based on your logo */
+        }
+
+        .hero-content h1 {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #0070f3;
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Selection Cards Container */
+        .apply-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 50px;
+        }
+
+        .option-card {
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            padding: 30px 20px;
+            border-radius: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 24px;
+        }
+
+        .option-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .option-card p {
+            font-size: 14px;
+            margin-bottom: 0;
+            opacity: 0.8;
+        }
+
+        /* --- ADSENSE PLACEHOLDER --- */
+        .ad-container {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 728px;
+            min-height: 90px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #cbd5e1;
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .apply-options {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 42px;
+            }
+            .hero-section {
+                padding-top: 60px;
+            }
+        }
+    
+
+
+
 
 /*footerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr*/
 /* --- Desktop & Base Styles (Jo tumne di thi) --- */
@@ -300,5 +467,127 @@
 
     to { transform: translateX(-50%); }
 
+}
+
+
+/*instructoin*/
+
+/* Container Styling */
+.internship-instructions {
+    background: #ffffff; /* Agar dark theme hai to isay #1a1a1a kar dein */
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.internship-instructions h2 {
+    color: #0f172a;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.internship-instructions p {
+    color: #64748b;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Roles List Styling */
+.roles-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns mein show hoga */
+    gap: 12px;
+}
+
+.roles-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #334155;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.roles-list li i {
+    color: #22c55e; /* Green check icons */
+    width: 20px;
+    height: 20px;
+}
+
+/* Note Box Styling */
+.note-box {
+    background-color: #f8fafc;
+     padding: 15px;
+    border-radius: 8px;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.note-box strong {
+    color: #0070f3;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .roles-list {
+        grid-template-columns: 1fr; /* Mobile par list ek line mein ho jayegi */
+    }
+}
+
+
+
+
+
+
+    /* Card ko relative karna zaroori hai taake badge iske andar rahe */
+.option-card {
+    position: relative;
+    overflow: hidden; /* Taake badge bahar na nikle */
+    border: 1px solid #ddd;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+}
+
+/* Badge ki general styling */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: -30px; /* Thora sa bahar nikala hai ribbon style ke liye */
+    transform: rotate(45deg); /* Tircha (Ribbon) style */
+    padding: 5px 35px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Hiring (Green/Blue) Badge */
+.badge.hiring {
+    background-color: #0070f3; /* Green color */
+}
+
+/* Closed (Red) Badge */
+.badge.closed {
+    background-color: #2f2a2a; /* Red color */
+}
+
+/* Job card ko thora fade karne ke liye jab wo closed ho */
+.job-closed {
+    pointer-events: none; /* Click kaam nahi kare ga */
+    filter: grayscale(0.5);
 }
 
