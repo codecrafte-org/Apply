@@ -2,7 +2,7 @@
 
         :root {
             --primary: #000000;
-            --secondary: #6366f1;
+            --secondary: #0070f3;
             --text-main: #1a1a1a;
             --text-muted: #64748b;
             --bg: #ffffff;
@@ -591,3 +591,16 @@
     filter: grayscale(0.5);
 }
 
+
+
+
+
+body {
+    /* cursor: url('path-to-your-icon'), auto; */
+    cursor: url('./images/mouse-pointer-click'), auto;
+}
+
+/* Jab kisi button ya link par jaye toh pointer change ho jaye */
+a, button, .option-card {
+    cursor: pointer;
+}
